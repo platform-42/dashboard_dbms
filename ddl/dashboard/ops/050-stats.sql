@@ -6,9 +6,9 @@
 
 
 -- ============================================================
--- CHANNEL STATISTICS
+-- STATISTICS
 --
--- One current operational snapshot per channel.
+-- One current operational snapshot per component.
 -- Updated by the application when the reporting threshold
 -- is reached.
 -- ============================================================

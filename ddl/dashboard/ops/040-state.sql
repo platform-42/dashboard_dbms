@@ -4,11 +4,10 @@
 -- Schema:   ops
 -- ============================================================
 
-
 -- ============================================================
--- ORCHESTRATOR STATE
+-- STATE
 --
--- One current state per orchestrator.
+-- One current state per component.
 -- The row is updated when the state changes.
 -- ============================================================
 
