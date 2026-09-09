@@ -7,7 +7,7 @@ def main():
         port=5432,
         dbname="dashboard",
         user="postgres",
-        password="your_password",
+        password="Albert0Ascari!",
     )
 
     try:
