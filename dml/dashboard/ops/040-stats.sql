@@ -6,4 +6,4 @@ SELECT ops.update_stats(
     25,
     312.450
     )
-    ;
+;
