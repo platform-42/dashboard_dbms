@@ -37,5 +37,5 @@ CREATE TABLE ops.stats (
         CHECK (total_errors >= 0),
 
     CONSTRAINT ck_stats_avg_response
-        CHECK (average_response_time_ms >= 0),
+        CHECK (average_response_time_ms >= 0)
 );
