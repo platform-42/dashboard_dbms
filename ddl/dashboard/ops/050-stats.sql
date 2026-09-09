@@ -4,9 +4,8 @@
 -- Schema:   ops
 -- ============================================================
 
-
 -- ============================================================
--- STATISTICS
+-- STATS
 --
 -- One current operational snapshot per component.
 -- Updated by the application when the reporting threshold
@@ -20,7 +19,6 @@ CREATE TABLE ops.stats (
     total_errors             BIGINT NOT NULL DEFAULT 0,
 
     average_response_time_ms NUMERIC(12,3) NOT NULL DEFAULT 0,
-    p95_response_time_ms     NUMERIC(12,3) NOT NULL DEFAULT 0,
 
     reported_at              TIMESTAMPTZ NOT NULL,
 
@@ -40,7 +38,4 @@ CREATE TABLE ops.stats (
 
     CONSTRAINT ck_stats_avg_response
         CHECK (average_response_time_ms >= 0),
-
-    CONSTRAINT ck_stats_p95_response
-        CHECK (p95_response_time_ms >= 0)
 );

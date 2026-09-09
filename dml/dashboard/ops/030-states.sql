@@ -1,4 +1,4 @@
-INSERT INTO ops.orchestrator_state
+INSERT INTO ops.state
     (component_id, state, reported_at)
 SELECT
     c.component_id,
