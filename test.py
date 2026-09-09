@@ -15,12 +15,12 @@ def main():
             cur.execute(
                 """
                 SELECT ops.update_stats(
-                    %s,  -- customer_name
-                    %s,  -- component_type
-                    %s,  -- component_name
-                    %s,  -- total_events
-                    %s,  -- total_errors
-                    %s   -- average_response_time_ms
+                    %s::text,     -- customer_name
+                    %s::text,     -- component_type
+                    %s::text,     -- component_name
+                    %s::integer,  -- total_events
+                    %s::integer,  -- total_errors
+                    %s::numeric   -- average_response_time_ms
                 )
                 """,
                 (
