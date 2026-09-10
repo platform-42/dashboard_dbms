@@ -16,3 +16,4 @@ update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
 # report that orchestrator is down for BlueFez
 update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
 
+update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
