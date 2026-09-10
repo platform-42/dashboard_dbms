@@ -21,3 +21,20 @@
 ### DML operations
 1. load customers -> dml/dashboard/ops/010-customers.sql
 2. load components -> dml/dashboard/ops/020-components.sql
+
+## Usage
+Stats update: update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
+
+    customer_name = "BlueFez" (pre-defined in customer-table)
+    component_type = "CHANNEL" (pre-defined in component-table)
+    component_name = "WhatsApp" (pre-defined in component-table)
+    total_events = 1
+    error_events = 1
+    response_time = 100.0 msec
+
+State update: update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
+
+    customer_name = "BlueFez" (pre-defined in customer-table)
+    component_type = "ORCHESTRATOR" (pre-defined in component-table)
+    component_name = "Orchestrator" (pre-defined in component-table)
+    available = False -> DOWN
