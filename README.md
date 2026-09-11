@@ -7,6 +7,7 @@
 3. setup DML operations (populate database with customers, orchestrator and channels)
 
 ### DDL operations - database
+0. create .pgpass file in ~/
 1. create database
 2. create schema -> ddl/dashboard/ops/010-schema.sql
 3. create customer table -> ddl/dashboard/ops/020-customer.sql
@@ -19,22 +20,28 @@
 8. register functions for update_stats -> ddl/dashboard/ops/functions/020-update-stats.sql
 
 ### DML operations
-1. load customers -> dml/dashboard/ops/010-customers.sql
-2. load components -> dml/dashboard/ops/020-components.sql
+1. populate customers table -> dml/dashboard/ops/010-customers.sql
+2. populate components table -> dml/dashboard/ops/020-components.sql
 
-## Usage
-Stats update: update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
+## Usage in Application
+Stats update: 
 
-    customer_name = "BlueFez" (pre-defined in customer-table)
-    component_type = "CHANNEL" (pre-defined in component-table)
-    component_name = "WhatsApp" (pre-defined in component-table)
-    total_events = 1
-    error_events = 1
-    response_time = 100.0 msec
+    update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
 
-State update: update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
+Where;
+    customer_name -> "BlueFez" (pre-defined in customer-table)
+    component_type -> "CHANNEL" (pre-defined in component-table)
+    component_name -> "WhatsApp" (pre-defined in component-table)
+    total_events -> 1
+    error_events -> 1
+    response_time -> 100.0 msec
 
-    customer_name = "BlueFez" (pre-defined in customer-table)
-    component_type = "ORCHESTRATOR" (pre-defined in component-table)
-    component_name = "Orchestrator" (pre-defined in component-table)
-    available = False -> DOWN
+State update: 
+
+    update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
+
+Where:
+    customer_name -> "BlueFez" (pre-defined in customer-table)
+    component_type -> "ORCHESTRATOR" (pre-defined in component-table)
+    component_name -> "Orchestrator" (pre-defined in component-table)
+    available -> False -> DOWN
