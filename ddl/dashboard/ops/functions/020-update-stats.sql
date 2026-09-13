@@ -14,7 +14,7 @@ BEGIN
     SELECT c.component_id INTO v_component_id
     FROM ops.component c
     JOIN ops.customer cu ON cu.customer_id = c.customer_id
-    WHERE cu.customer_name  = p_customer_name
+    WHERE cu.name  = p_customer_name
       AND c.component_type  = p_component_type
       AND c.component_name  = p_component_name;
 
