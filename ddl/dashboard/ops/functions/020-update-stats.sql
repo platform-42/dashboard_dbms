@@ -15,8 +15,8 @@ BEGIN
     FROM ops.component c
     JOIN ops.customer cu ON cu.customer_id = c.customer_id
     WHERE cu.name  = p_customer_name
-      AND c.component_type  = p_component_type
-      AND c.component_name  = p_component_name;
+      AND c.type  = p_component_type
+      AND c.name  = p_component_name;
 
     IF v_component_id IS NULL THEN
         RAISE EXCEPTION 'Unknown component: customer=%, type=%, name=%',
