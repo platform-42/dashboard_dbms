@@ -8,7 +8,7 @@
 
 ### DDL operations - database
 0. create .pgpass file in ~/
-1. create database
+1. create database called dashboard
 2. create schema -> ddl/dashboard/ops/010-schema.sql
 3. create customer table -> ddl/dashboard/ops/020-customer.sql
 4. create component table -> ddl/dashboard/ops/030-component.sql
