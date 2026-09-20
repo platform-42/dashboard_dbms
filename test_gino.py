@@ -10,7 +10,6 @@ from ops_stats import (
 #   catch all exceptions before exit
 #
 def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
-    print("*** FUCK ")
     if issubclass(exc_type, KeyboardInterrupt):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
