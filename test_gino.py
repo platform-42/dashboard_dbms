@@ -20,9 +20,11 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_uncaught_exception
 
 if __name__ == "__main__":
+    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
+    update_stats("Platform42", "CHANNEL", "WhatsApp", True)
+    update_stats("Platform42", "CHANNEL", "Instagram", True)
     update_stats("Platform42", "CHANNEL", "WhatsApp", 3, 1, 180.0)
     update_stats("Platform42", "CHANNEL", "Instagram", 4, 0, 55.0)
-    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
     time.sleep(20)
     a = 10/0
 
