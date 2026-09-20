@@ -16,32 +16,38 @@
 6. create stats table -> ddl/dashboard/ops/050-stats.sql
 
 ### DDL operations - functions
-7. register functions for update_state -> ddl/dashboard/ops/functions/010-update-state.sql
-8. register functions for update_stats -> ddl/dashboard/ops/functions/020-update-stats.sql
+1. register function for update_state -> ddl/dashboard/ops/functions/010-update-state.sql
+2. register function for update_stats -> ddl/dashboard/ops/functions/020-update-stats.sql
+3. register function for listing customers -> ddl/dashboard/ops/functions/030-get-customer-list.sql
+4. register function for retrieving stats objects for customer -> ddl/dashboard/ops/functions/040-get-customer-stats.sql
+5. register function for retrieving state objects for customer -> ddl/dashboard/ops/functions/050-get-customer-state.sql
 
-### DML operations
+### DML operations - customize yourself
 1. populate customers table -> dml/dashboard/ops/010-customers.sql
 2. populate components table -> dml/dashboard/ops/020-components.sql
 
 ## Usage in Application
 Stats update: 
 
-    update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
-
-Where;
-    customer_name -> "BlueFez" (pre-defined in customer-table)
-    component_type -> "CHANNEL" (pre-defined in component-table)
-    component_name -> "WhatsApp" (pre-defined in component-table)
-    total_events -> 1
-    error_events -> 1
-    response_time -> 100.0 msec
+    update_stats( 
+        customer_name="BlueFez", 
+        component_type="CHANNEL", 
+        component_name="WhatsApp", 
+        total_events=1, 
+        total_errors=1, 
+        total_response_time_ms=100.0
+        )
 
 State update: 
 
-    update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
+    update_state(
+        customer_name="BlueFez", 
+        component_type="ORCHESTRATOR", 
+        component_name="Orchestrator", 
+        available=False
+        )
 
 Where:
     customer_name -> "BlueFez" (pre-defined in customer-table)
     component_type -> "ORCHESTRATOR" (pre-defined in component-table)
     component_name -> "Orchestrator" (pre-defined in component-table)
-    available -> False -> DOWN
