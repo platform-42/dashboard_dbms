@@ -1,4 +1,5 @@
 import sys
+import time
 
 from ops_stats import (
     update_stats,
@@ -23,6 +24,6 @@ if __name__ == "__main__":
     update_stats("Platform42", "CHANNEL", "WhatsApp", 3, 1, 180.0)
     update_stats("Platform42", "CHANNEL", "Instagram", 4, 0, 55.0)
     update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
-
+    time.sleep(20)
     a = 10/0
 
