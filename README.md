@@ -7,7 +7,7 @@
 3. setup DML operations (populate database with customers, orchestrator and channels)
 
 ### DDL operations - database
-0. create .pgpass file in ~/
+0. create .pgpass file in ~/ (optional)
 1. create database called dashboard
 2. create schema -> ddl/dashboard/ops/010-schema.sql
 3. create customer table -> ddl/dashboard/ops/020-customer.sql

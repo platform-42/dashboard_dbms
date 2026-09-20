@@ -1,22 +1,24 @@
+import sys
+
 from ops_stats import (
     update_stats,
     update_state
 )
 
-#
-# prerequisite: 
-#   make sure the ops_stats extension is installed in your database
-#   make sure that ops.customers is populated (e.g. BlueFez, Platform42, etc.) 
-#   make sure that osps.components is populated (e.g. WhatsApp, Orchestrator, etc.)
-#
+def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False)
 
-# report that 1 item was processed for BlueFez, with 1 error and an average response time of 100ms
-update_stats("BlueFez", "CHANNEL", "WhatsApp", 1, 1, 100.0)
 
-# report that orchestrator is down for BlueFez
-update_state("BlueFez", "ORCHESTRATOR", "Orchestrator", False)
 
-# platform42  
-update_stats("Platform42", "CHANNEL", "WhatsApp", 3, 1, 180.0)
-update_stats("Platform42", "CHANNEL", "Instagram", 4, 0, 55.0)
-update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
+sys.excepthook = handle_uncaught_exception
+
+if __name__ == "__main__":
+    update_stats("Platform42", "CHANNEL", "WhatsApp", 3, 1, 180.0)
+    update_stats("Platform42", "CHANNEL", "Instagram", 4, 0, 55.0)
+    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
+
+    a = 10/0
+
