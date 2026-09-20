@@ -14,7 +14,6 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
     update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False)
-    exit(1)
 
 
 sys.excepthook = handle_uncaught_exception
