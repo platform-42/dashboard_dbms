@@ -14,6 +14,7 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
+    print("*** Uncaught exception ***")
     update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False)
 
 sys.excepthook = handle_uncaught_exception
