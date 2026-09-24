@@ -36,5 +36,5 @@ if __name__ == "__main__":
     update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(100, 20), 3, 180.0)
     time.sleep(20)
     # force an exception to test the uncaught exception handler
-    a = 10/0
+    # a = 10/0
 

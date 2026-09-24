@@ -11,7 +11,7 @@ VALUES (
     NULL, 
     'success_rate', 
     'GTE', 
-    80, 
+    82, 
     70
     );
 
