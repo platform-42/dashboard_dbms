@@ -17,7 +17,7 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
     print("*** Uncaught exception ***")
     update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False)
 
-# sys.excepthook = handle_uncaught_exception
+sys.excepthook = handle_uncaught_exception
 
 if __name__ == "__main__":
     # update states
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     time.sleep(20)
     # force an exception to test the uncaught exception handler
     # a = 10/0
-    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False, True)
+    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False, planned_shutdown=True)
 
