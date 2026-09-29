@@ -12,6 +12,7 @@
 -- is reached.
 -- ============================================================
 
+DELETE TABLE IF EXISTS ops.stats;
 CREATE TABLE ops.stats (
     component_id             BIGINT NOT NULL,
 

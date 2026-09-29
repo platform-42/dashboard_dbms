@@ -16,6 +16,7 @@
 -- rule (binary pass/fail, no amber tier) and isn't needed by this
 -- dashboard yet.
 
+DELETE TABLE IF EXISTS ops.objective;
 CREATE TABLE ops.objective (
     objective_id     BIGSERIAL NOT NULL,
     component_id     BIGINT NULL,

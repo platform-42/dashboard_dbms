@@ -8,6 +8,7 @@
 -- COMPONENT
 -- ============================================================
 
+DELETE TABLE IF EXISTS ops.component;
 CREATE TABLE ops.component (
     component_id BIGINT GENERATED ALWAYS AS IDENTITY,
     customer_id  BIGINT NOT NULL,
