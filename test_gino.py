@@ -15,13 +15,13 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
     print("*** Uncaught exception ***")
-    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False)
+    update_state("Platform42", "ORCHESTRATOR", "Platform42", False)
 
 sys.excepthook = handle_uncaught_exception
 
 if __name__ == "__main__":
     # update states
-    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", True)
+    update_state("Platform42", "ORCHESTRATOR", "Platform42", True)
     update_state("Platform42", "CHANNEL", "WhatsApp", True)
     update_state("Platform42", "CHANNEL", "Instagram", True)
     # bump first round of stats
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     time.sleep(20)
     # force an exception to test the uncaught exception handler
     # a = 10/0
-    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False, planned_shutdown=True)
-
+    update_state("Platform42", "ORCHESTRATOR", "Platform42", False, planned_shutdown=True)
+    update_state("BlueFez", "ORCHESTRATOR", "BlueFez", False) #testing unplanned shutdown for BlueFez orchestrator
