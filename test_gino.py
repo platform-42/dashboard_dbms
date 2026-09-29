@@ -38,4 +38,5 @@ if __name__ == "__main__":
     time.sleep(20)
     # force an exception to test the uncaught exception handler
     # a = 10/0
+    update_state("Platform42", "ORCHESTRATOR", "Orchestrator", False, True)
 
