@@ -8,7 +8,9 @@
 -- CUSTOMER
 -- ============================================================
 
-DELETE TABLE IF EXISTS ops.customer;
+DROP TABLE IF EXISTS ops.customer
+;
+
 CREATE TABLE ops.customer (
     customer_id BIGINT GENERATED ALWAYS AS IDENTITY,
     name        VARCHAR(100) NOT NULL,
@@ -19,6 +21,7 @@ CREATE TABLE ops.customer (
 
     CONSTRAINT uq_customer_name
         UNIQUE (name)
-);
+)
+;
 
 

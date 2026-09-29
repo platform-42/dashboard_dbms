@@ -15,7 +15,8 @@
 -- objective exists for a metric, the *_rag column is NULL --
 -- deliberately neutral, not a guess.
 
-DROP FUNCTION IF EXISTS ops.get_customer_stats(BIGINT);
+DROP FUNCTION IF EXISTS ops.get_customer_stats(BIGINT)
+;
 
 CREATE FUNCTION ops.get_customer_stats(p_customer_id BIGINT)
 RETURNS TABLE (
@@ -93,4 +94,5 @@ RETURNS TABLE (
 
     WHERE c.customer_id = p_customer_id
     ORDER BY c.name;
-$$ LANGUAGE sql STABLE;
+$$ LANGUAGE sql STABLE
+;

@@ -7,7 +7,8 @@
 -- absent until its first report -- see the note in the dashboard app
 -- about that trade-off.
 
-DROP FUNCTION IF EXISTS ops.get_customer_state(BIGINT);
+DROP FUNCTION IF EXISTS ops.get_customer_state(BIGINT)
+;
 
 CREATE FUNCTION ops.get_customer_state(p_customer_id BIGINT)
 RETURNS TABLE (
@@ -27,4 +28,5 @@ RETURNS TABLE (
     JOIN ops.state s ON s.component_id = c.component_id
     WHERE c.customer_id = p_customer_id
     ORDER BY c.name;
-$$ LANGUAGE sql STABLE;
+$$ LANGUAGE sql STABLE
+;

@@ -16,7 +16,9 @@
 -- rule (binary pass/fail, no amber tier) and isn't needed by this
 -- dashboard yet.
 
-DELETE TABLE IF EXISTS ops.objective;
+DROP TABLE IF EXISTS ops.objective
+;
+
 CREATE TABLE ops.objective (
     objective_id     BIGSERIAL NOT NULL,
     component_id     BIGINT NULL,
@@ -35,16 +37,19 @@ CREATE TABLE ops.objective (
 
     CONSTRAINT ck_objective_operator
         CHECK (operator IN ('LT', 'LTE', 'GT', 'GTE'))
-);
+)
+;
 
 -- Exactly one global default per metric (component_id IS NULL).
 -- Plain UNIQUE(component_id, metric_name) would NOT enforce this,
 -- since Postgres treats NULL <> NULL -- hence the partial index.
 CREATE UNIQUE INDEX uq_objective_global
     ON ops.objective (metric_name)
-    WHERE component_id IS NULL;
+    WHERE component_id IS NULL
+    ;
 
 -- At most one override per component per metric.
 CREATE UNIQUE INDEX uq_objective_component
     ON ops.objective (component_id, metric_name)
-    WHERE component_id IS NOT NULL;
+    WHERE component_id IS NOT NULL
+    ;

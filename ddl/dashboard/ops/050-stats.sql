@@ -12,7 +12,9 @@
 -- is reached.
 -- ============================================================
 
-DELETE TABLE IF EXISTS ops.stats;
+DROP TABLE IF EXISTS ops.stats
+;
+
 CREATE TABLE ops.stats (
     component_id             BIGINT NOT NULL,
 
@@ -45,8 +47,10 @@ CHECK (sample_count >= 0),
 
 CONSTRAINT ck_stats_total_response
 CHECK (total_response_time_ms >= 0)
-);
+)
+;
 
 -- last-completed-window lookups will be frequent from the dashboard function
 CREATE INDEX ix_stats_component_window
-ON ops.stats (component_id, window_start DESC);
+ON ops.stats (component_id, window_start DESC)
+;

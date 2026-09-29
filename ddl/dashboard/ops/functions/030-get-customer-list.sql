@@ -2,7 +2,8 @@
 -- No filtering/logic here on purpose: the picker shows everything, the
 -- operator decides which one to look at.
 
-DROP FUNCTION IF EXISTS ops.get_customer_list();
+DROP FUNCTION IF EXISTS ops.get_customer_list()
+;
 
 CREATE FUNCTION ops.get_customer_list()
 RETURNS TABLE (
@@ -14,4 +15,5 @@ RETURNS TABLE (
         cu.name AS customer_name
     FROM ops.customer cu
     ORDER BY cu.name;
-$$ LANGUAGE sql STABLE;
+$$ LANGUAGE sql STABLE
+;

@@ -11,7 +11,9 @@
 -- The row is updated when the state changes.
 -- ============================================================
 
-DELETE TABLE IF EXISTS ops.state;
+DROP TABLE IF EXISTS ops.state
+;
+
 CREATE TABLE ops.state (
     component_id BIGINT NOT NULL,
 
@@ -28,4 +30,5 @@ CREATE TABLE ops.state (
 
     CONSTRAINT ck_state
         CHECK (state IN ('UP', 'DOWN', 'MAINTENANCE'))
-);
+)
+;

@@ -8,7 +8,9 @@
 -- COMPONENT
 -- ============================================================
 
-DELETE TABLE IF EXISTS ops.component;
+DROP TABLE IF EXISTS ops.component
+;
+
 CREATE TABLE ops.component (
     component_id BIGINT GENERATED ALWAYS AS IDENTITY,
     customer_id  BIGINT NOT NULL,
@@ -33,4 +35,5 @@ CREATE TABLE ops.component (
 
     CONSTRAINT uq_component_customer_name
         UNIQUE (customer_id, name)
-);
+)
+;

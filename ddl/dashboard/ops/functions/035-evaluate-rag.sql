@@ -12,7 +12,8 @@
 -- amber_threshold is optional: if NULL, the metric is binary
 -- (GREEN/RED only, no amber tier).
 
-DROP FUNCTION IF EXISTS ops.evaluate_rag(NUMERIC, VARCHAR, NUMERIC, NUMERIC);
+DROP FUNCTION IF EXISTS ops.evaluate_rag(NUMERIC, VARCHAR, NUMERIC, NUMERIC)
+;
 
 CREATE FUNCTION ops.evaluate_rag(
     p_value           NUMERIC,
@@ -52,4 +53,5 @@ CREATE FUNCTION ops.evaluate_rag(
 
         ELSE NULL
     END;
-$$ LANGUAGE sql IMMUTABLE;
+$$ LANGUAGE sql IMMUTABLE
+;
