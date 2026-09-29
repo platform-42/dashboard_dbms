@@ -11,10 +11,10 @@ SELECT
 FROM ops.customer AS cu
 JOIN (
     VALUES
-        ('Platform42',  'ORCHESTRATOR', 'Orchestrator'),
+        ('Platform42',  'ORCHESTRATOR', 'Platform42'),
         ('Platform42',  'CHANNEL',      'WhatsApp'),
         ('Platform42',  'CHANNEL',      'Instagram'),
-        ('BlueFez',     'ORCHESTRATOR', 'Orchestrator'),
+        ('BlueFez',     'ORCHESTRATOR', 'BlueFez'),
         ('BlueFez',     'CHANNEL',      'WhatsApp')
 ) AS v(customer_name, type, component_name)
     ON cu.name = v.customer_name
