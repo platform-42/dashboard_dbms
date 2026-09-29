@@ -1,6 +1,6 @@
 -- Components
 DELETE FROM ops.component
-    ;
+;
 
 INSERT INTO ops.component AS co
     (customer_id, type, name)
@@ -18,4 +18,4 @@ JOIN (
         ('BlueFez',     'CHANNEL',      'WhatsApp')
 ) AS v(customer_name, type, component_name)
     ON cu.name = v.customer_name
-    ;
+;

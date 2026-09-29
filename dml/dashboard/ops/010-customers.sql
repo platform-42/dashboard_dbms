@@ -1,6 +1,6 @@
 -- Customers
 DELETE FROM ops.customer
-    ;
+;
 
 INSERT INTO ops.customer 
     (name)
@@ -9,4 +9,4 @@ VALUES
     ('BlueFez'),
     ('InnovativeAISolutions'),
     ('Esolutionssystems')
-    ;
+;
