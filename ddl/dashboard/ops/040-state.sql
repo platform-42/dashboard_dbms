@@ -26,5 +26,5 @@ CREATE TABLE ops.state (
         ON DELETE CASCADE,
 
     CONSTRAINT ck_state
-        CHECK (state IN ('UP', 'DOWN'))
+        CHECK (state IN ('UP', 'DOWN', 'MAINTENANCE'))
 );
