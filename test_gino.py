@@ -23,19 +23,9 @@ if __name__ == "__main__":
     update_state("Platform42", "ORCHESTRATOR", "Platform42", True)
     update_state("Platform42", "CHANNEL", "WhatsApp", True)
     update_state("Platform42", "CHANNEL", "Instagram", True)
-    # bump first round of stats
-    update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(10, 20), 0, 180.0)
-    update_stats("Platform42", "CHANNEL", "Instagram", random.randint(20, 40), 0, 55.0)
-    time.sleep(20)
-    # bump second round of stats
-    update_stats("Platform42", "CHANNEL", "Instagram", random.randint(3, 9), 2, 55.0)
-    update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(11, 20), 3, 180.0)
-    time.sleep(20)
-    # bump second round of stats
-    update_stats("Platform42", "CHANNEL", "Instagram", random.randint(21, 41), 6, 55.0)
-    update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(100, 200), 3, 180.0)
-    time.sleep(20)
-    # force an exception to test the uncaught exception handler
-    # a = 10/0
-    update_state("Platform42", "ORCHESTRATOR", "Platform42", False, planned_shutdown=True)
-    update_state("BlueFez", "ORCHESTRATOR", "BlueFez", False) #testing unplanned shutdown for BlueFez orchestrator
+    while True:
+        # bump first round of stats
+        update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(10, 20), random.randint(0, 5), 180.0)
+        update_stats("Platform42", "CHANNEL", "Instagram", random.randint(20, 40), random.randint(2, 7), 55.0)
+        time.sleep(20)
+        a = 10 / random.randint(0, 40)
