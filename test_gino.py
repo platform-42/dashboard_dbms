@@ -8,13 +8,12 @@ from ops_stats import (
 )
 
 #
-#   catch all exceptions before exit
+#   catch all exceptions before exit - mark object as down in the dashboard
 #
 def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
-    print("*** Uncaught exception ***")
     update_state("Platform42", "ORCHESTRATOR", "Platform42", False)
 
 sys.excepthook = handle_uncaught_exception
@@ -25,8 +24,8 @@ if __name__ == "__main__":
     update_state("Platform42", "CHANNEL", "WhatsApp", True)
     update_state("Platform42", "CHANNEL", "Instagram", True)
     # bump first round of stats
-    update_stats("Platform42", "CHANNEL", "WhatsApp", 3, 1, 180.0)
-    update_stats("Platform42", "CHANNEL", "Instagram", 4, 0, 55.0)
+    update_stats("Platform42", "CHANNEL", "WhatsApp", random.randint(10, 20), 0, 180.0)
+    update_stats("Platform42", "CHANNEL", "Instagram", random.randint(20, 40), 0, 55.0)
     time.sleep(20)
     # bump second round of stats
     update_stats("Platform42", "CHANNEL", "Instagram", random.randint(3, 9), 2, 55.0)
