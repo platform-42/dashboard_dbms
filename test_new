@@ -26,7 +26,7 @@ if __name__ == "__main__":
     while True:
         # bump first round of stats
         time.sleep(random.randint(1, 5))
-        errors_5 = 1 if random.random() < 0.05 else 0
-        erors_10 = 1 if random.random() < 0.10 else 0
-        client.update_stats("Platform42", "CHANNEL", "WhatsApp", 1, errors_5, 180.0)
-        client.update_stats("Platform42", "CHANNEL", "Instagram", 1, errors_10, 55.0)
+        errors_10 = 1 if random.random() < 0.10 else 0
+        errors_20 = 1 if random.random() < 0.20 else 0
+        client.update_stats("Platform42", "CHANNEL", "WhatsApp", 1, errors_10, 180.0)
+        client.update_stats("Platform42", "CHANNEL", "Instagram", 1, errors_20, 55.0)
