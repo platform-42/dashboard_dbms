@@ -14,6 +14,7 @@ JOIN (
         ('Platform42',  'ORCHESTRATOR', 'Platform42'),
         ('Platform42',  'CHANNEL',      'WhatsApp'),
         ('Platform42',  'CHANNEL',      'Instagram'),
+        ('Platform42',  'CHANNEL',      'Email'),
         ('BlueFez',     'ORCHESTRATOR', 'BlueFez'),
         ('BlueFez',     'CHANNEL',      'WhatsApp')
 ) AS v(customer_name, type, component_name)
