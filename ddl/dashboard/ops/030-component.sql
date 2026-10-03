@@ -28,7 +28,7 @@ CREATE TABLE ops.component (
         ON DELETE CASCADE,
 
     CONSTRAINT ck_component_type
-        CHECK (type IN ('ORCHESTRATOR', 'CHANNEL')),
+        CHECK (type IN ('ORCHESTRATOR', 'CHANNEL', 'FLASK')),
 
     CONSTRAINT ck_component_status
         CHECK (status IN ('ACTIVE', 'INACTIVE')),

@@ -12,6 +12,7 @@ FROM ops.customer AS cu
 JOIN (
     VALUES
         ('Platform42',                  'CHANNEL',      'StockAlert'),
+        ('Platform42',                  'FLASK',        'StockAPI'),
         ('InnovativeAISolutions',       'ORCHESTRATOR', 'BlueFez'),
         ('InnovativeAISolutions',       'CHANNEL',      'WhatsApp'),
         ('InnovativeAISolutions',       'CHANNEL',      'Instagram'),
