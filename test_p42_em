@@ -13,14 +13,14 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
         sys.__excepthook__(exc_type, exc_value, exc_traceback)
         return
-    client.update_state("Platform42", "CHANNEL", "Email", False)
+    client.update_state("InnovativeAISolutions", "CHANNEL", "Email", False)
     client.close()
 
 sys.excepthook = handle_uncaught_exception
 
 if __name__ == "__main__":
-    client.update_state("Platform42", "CHANNEL", "Email", True)
+    client.update_state("InnovativeAISolutions", "CHANNEL", "Email", True)
     while True:
         time.sleep(random.randint(1, 2))
         errors = 1 if random.random() < 0.20 else 0
-        client.update_stats("Platform42", "CHANNEL", "Email", 1, errors, random.randint(10, 100))
+        client.update_stats("InnovativeAISolutions", "CHANNEL", "Email", 1, errors, random.randint(10, 100))
